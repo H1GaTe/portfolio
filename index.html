@@ -3,6 +3,8 @@
 <head>
     <title>Визитка - Алсу Рамильевна</title>
     <link rel="stylesheet" href="./css/style.css">
+
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
     <nav class="nav">
@@ -103,5 +105,18 @@
     </footer>
 
     <script src="./js/main.js"></script>
+
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              // Указан точный путь с учетом подпапки репозитория /portfolio/
+              document.location.href = "/portfolio/admin/";
+            });
+          }
+        });
+      }
+    </script>
 </body>
 </html>
